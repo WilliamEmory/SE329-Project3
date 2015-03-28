@@ -1,6 +1,6 @@
 {
     "name": "Tab Manager",
-    "version": "3.13",
+    "version": "1.0",
     "manifest_version": 2,
     "description": "Let's you very easy and fast handle your tabs!",
     "permissions": ["tabs"],
