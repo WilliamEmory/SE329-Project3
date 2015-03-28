@@ -31,4 +31,10 @@ $(function() {
     chrome.tabs.remove(parseInt(parent.attr('id'), 10));
     parent.remove();
   });
+  
+  $('body').on('dblclick', 'li', function() {
+	var tabId = parseInt($(this).attr('id'), 10);
+	chrome.windows.create({ tabId: tabId, focused: true });
+	chrome.windows.remove(tabId);
+  });
 });
