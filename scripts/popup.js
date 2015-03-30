@@ -20,6 +20,12 @@ $(function() {
     }
     $('.tab-count').text(tab.length);
   });
+  
+  $('body').on('dblclick', 'li', function() {
+	var tabId = parseInt($(this).attr('id'), 10);
+	chrome.windows.create({ tabId: tabId, focused: true });
+	chrome.tabs.remove(tabId);
+  });
 
   $('body').on('click', 'li', function() {
     var tabId = parseInt($(this).attr('id'), 10);
@@ -30,11 +36,5 @@ $(function() {
     var parent = $(this).parent();
     chrome.tabs.remove(parseInt(parent.attr('id'), 10));
     parent.remove();
-  });
-  
-  $('body').on('dblclick', 'li', function() {
-	var tabId = parseInt($(this).attr('id'), 10);
-	chrome.windows.create({ tabId: tabId, focused: true });
-	chrome.windows.remove(tabId);
   });
 });
