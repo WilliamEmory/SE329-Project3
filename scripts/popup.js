@@ -24,7 +24,6 @@ $(function() {
   $('body').on('dblclick', 'li', function() {
 	var tabId = parseInt($(this).attr('id'), 10);
 	chrome.windows.create({ tabId: tabId, focused: true });
-	chrome.tabs.remove(tabId);
   });
 
   $('body').on('click', 'li', function() {
