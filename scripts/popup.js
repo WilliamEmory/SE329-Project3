@@ -6,11 +6,16 @@ var ellipsize = function(string) {
   return string;
 };
 
+function filterTabs(element){
+    value = $(element).val();
+    
+}
+
 $(function() {
   chrome.tabs.query({ currentWindow: true }, function(tab) {
     for (var i = tab.length - 1; i >= 0; i--) {
       var currentTab = tab[i];
-      
+        
       $('ul').append(
         '<li id="' + currentTab.id + '">' +
           '<img width="25" height="25" src="' + currentTab.favIconUrl + '">' +
@@ -18,6 +23,19 @@ $(function() {
           '<span class="close">x</span>' +
         '</li>');
     }
+      $('#search').keyup(function(){
+            var value = $(this).val().toLocaleLowerCase();
+            if(value == ""){
+                $('.tablist > li').show();
+            }
+            else{
+                $('.tablist > li').each(function(){
+                    var select = $(this).text().toLocaleLowerCase();
+                    (select.indexOf(value) >= 0) ? $(this).show() : $(this).hide();
+                });
+            
+            };
+        });
     $('.tab-count').text(tab.length);
   });
   
