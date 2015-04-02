@@ -20,6 +20,7 @@ $(function() {
         '<li id="' + currentTab.id + '">' +
           '<img width="25" height="25" src="' + currentTab.favIconUrl + '">' +
           '<a>' + ellipsize(currentTab.title) + '</a>' +
+		  '<span class="expand">^</span>' +
           '<span class="close">x</span>' +
         '</li>');
     }
@@ -39,10 +40,14 @@ $(function() {
     $('.tab-count').text(tab.length);
   });
   
-  $('body').on('dblclick', 'li', function() {
+  function expand() {
 	var tabId = parseInt($(this).attr('id'), 10);
 	chrome.windows.create({ tabId: tabId, focused: true });
-  });
+  }
+  
+  $('body').on('dblclick', 'li', expand);
+  
+  $('body').on('click', '.expand', expand);
 
   $('body').on('click', 'li', function() {
     var tabId = parseInt($(this).attr('id'), 10);
