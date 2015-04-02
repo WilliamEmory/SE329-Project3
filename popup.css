@@ -8,6 +8,11 @@ html {
     max-height: inherit;
 }
 
+.condenselist {
+    overflow-y: auto;
+    max-height: inherit;
+}
+
 body {
 
 }
@@ -112,6 +117,14 @@ body {
       background: #DDD;
     }
     .close {
+      position: relative;
+      float: right;
+      margin: 2px 12px 0 0;
+      font-size: 16px;
+      color: #CCC;
+      z-index: 2;
+    }
+    .delete {
       position: relative;
       float: right;
       margin: 2px 12px 0 0;
