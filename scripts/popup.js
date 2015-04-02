@@ -45,11 +45,11 @@ $(function() {
 	chrome.windows.create({ tabId: tabId, focused: true });
   }
   
-  $('body').on('dblclick', 'li', expand);
+  $('body').on('dblclick', '#tablist li', expand);
   
   $('body').on('click', '.expand', expand);
 
-  $('body').on('click', 'li', function() {
+  $('body').on('click', '#tablist li', function() {
     var tabId = parseInt($(this).attr('id'), 10);
     chrome.tabs.update(tabId, { active: true });
   });
@@ -74,5 +74,70 @@ jQuery(document).ready(function () {
         jQuery(".tab" + currentAttrValue).addClass('active').siblings().removeClass('active');
 
         e.preventDefault();
+    });
+
+    jQuery('button').on('click', function () {
+        chrome.tabs.query({ currentWindow: true, active: false }, function (tab) {
+
+            var tabsToRemove = [];
+            condensedList = localStorage.getItem("condensedList");
+
+            if (typeof condensedList !== typeof []) {
+                condensedList = [];
+            }
+
+            for (var i = 0; i < tab.length; i++) {
+                var currentTab = tab[i];
+
+                var entry = { title: currentTab.title, url: currentTab.url };
+
+                tabsToRemove.push(currentTab.id);
+                condensedList.push(entry);
+
+                $('#condenselist').append(
+                '<li title="' + currentTab.title + '">' +
+                    '<a>' + ellipsize(currentTab.title) + '</a>' +
+                    '<span class="delete">x</span>' +
+                '</li>');
+            }
+
+            localStorage.setItem("condensedList", condensedList);
+
+            chrome.tabs.remove(tabsToRemove);
+        });
+    });
+
+    $('body').on('click', '.delete', function () {
+        var parent = $(this).parent();
+
+        condensedList = localStorage.getItem("condensedList");
+
+        for (var i = 0; i < condensedList.length; i++) {
+            if (condensedList[i].title === parent.attr('title')) {
+                condensedList.splice(i, 1);
+                break;
+            }
+        }
+
+        localStorage.setItem("condensedList", condensedList);
+
+        parent.remove();
+    });
+
+    $('body').on('click', '#condenselist li', function () {
+        var tabTitle = $(this).attr('title');
+        var tabUrl = "";
+        condensedList = localStorage.getItem("condensedList");
+
+        for (var i = 0; i < condensedList.length; i++) {
+            if (condensedList[i].title === tabTitle) {
+                tabUrl = condensedList[i].url;
+                $(this).remove();
+                condensedList.splice(i, 1);
+                localStorage.setItem("condensedList", condensedList);
+
+                chrome.tabs.create({ url: tabUrl });
+            }
+        }
     });
 });
