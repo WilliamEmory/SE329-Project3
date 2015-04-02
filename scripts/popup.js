@@ -16,7 +16,7 @@ $(function() {
     for (var i = tab.length - 1; i >= 0; i--) {
       var currentTab = tab[i];
         
-      $('ul').append(
+      $('#tablist').append(
         '<li id="' + currentTab.id + '">' +
           '<img width="25" height="25" src="' + currentTab.favIconUrl + '">' +
           '<a>' + ellipsize(currentTab.title) + '</a>' +
@@ -54,4 +54,20 @@ $(function() {
     chrome.tabs.remove(parseInt(parent.attr('id'), 10));
     parent.remove();
   });
+});
+
+jQuery(document).ready(function () {
+    jQuery('.tabs .tab-links a').on('click', function (e) {
+        var currentAttrValue = jQuery(this).attr('href');
+
+        // Show/Hide Tabs
+        jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+
+        // Change/remove current tab to active
+        jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+
+        jQuery(".tab" + currentAttrValue).addClass('active').siblings().removeClass('active');
+
+        e.preventDefault();
+    });
 });

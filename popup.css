@@ -1,0 +1,121 @@
+html {
+  max-height: 230px;
+  width: 400px;
+}
+
+.tablist {
+    overflow-y: auto;
+    max-height: inherit;
+}
+
+body {
+
+}
+
+/*----- Tabs -----*/
+.tabs {
+    width:100%;
+    display:inline-block;
+}
+ 
+    /*----- Tab Links -----*/
+    /* Clearfix */
+    .tab-links:after {
+        display:block;
+        clear:both;
+        content:'';
+    }
+ 
+    .tab-links {
+        -webkit-padding-start: 0px;
+    }
+    .tab-links li {
+        margin:0px 5px;
+        float:left;
+        list-style:none;
+    }
+ 
+        .tab-links a {
+            padding:0px 15px;
+            display:inline-block;
+            border-radius:3px 3px 0px 0px;
+            background:#7FB5DA;
+            font-size:16px;
+            font-weight:600;
+            color:#4c4c4c;
+            transition:all linear 0.15s;
+        }
+ 
+        .tab-links a:hover {
+            background:#a7cce5;
+            text-decoration:none;
+        }
+ 
+    li.active a, li.active a:hover {
+        background:#fff;
+        color:#4c4c4c;
+    }
+ 
+    /*----- Content of Tabs -----*/
+    .tab-content {
+        padding:15px;
+        padding-top:0px;
+        border-radius:3px;
+        background:#fff;
+        max-height: 200px;
+    }
+ 
+        .tab {
+            display:none;
+            max-height:inherit;
+        }
+ 
+        .tab.active {
+            display:block;
+            max-height:inherit;
+        }
+
+    body {
+      margin: 0px;
+      width: 400px;
+      font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
+      font-size: 12px;
+      text-overflow: ellipsis;
+    }
+    a {
+      color: #333;
+      width: 100%;
+      vertical-align: middle;
+    }
+    ul {
+      margin: 0px;
+      list-style-type: none;
+      padding: 0px;
+    }
+    li {
+      cursor: pointer;
+      padding: 7px 0px;
+    }
+    li:hover {
+      background: #F5F5F5;
+    }
+    img {
+      vertical-align: middle;
+      padding: 0px 8px;
+    }
+    .tab-count {
+      font-size: 11px;
+      font-weight: bold;
+      color: #666;
+      text-align: center;
+      padding: 7px 0;
+      background: #DDD;
+    }
+    .close {
+      position: relative;
+      float: right;
+      margin: 2px 12px 0 0;
+      font-size: 16px;
+      color: #CCC;
+      z-index: 2;
+    }

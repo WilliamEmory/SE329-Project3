@@ -3,13 +3,31 @@
 <head>
     <script type="text/javascript" src="scripts/jquery.js"></script>
     <script type="text/javascript" src="scripts/popup.js"></script>
+    <link rel="stylesheet" type="text/css" href="popup.css">
 </head>
 
 <body>
-    <div>
-        <input id="search" type="text" autofocus="autofocus" name="listSearch" placeholder="Search Tabs" onkeyup="filterTabs(this)">
+    <div class="tabs">
+        <ul class="tab-links">
+            <li class="active"><a href="#tab1">List</a></li>
+            <li><a href="#tab2">Condense</a></li>
+            <li><a href="#tab3">Group</a></li>
+        </ul>
     </div>
-    <ul class="tablist" style="list-style: none;"></ul>
+    <div class="tab-content">
+        <div id="tab1" class="tab active">
+            <input id="search" type="text" autofocus="autofocus" name="listSearch" placeholder="Search Tabs" onkeyup="filterTabs(this)">
+            <ul class="tablist" style="list-style: none;" id="tablist"></ul>
+        </div>
+        <div id="tab2" class="tab">
+            <button>Condense Tab</button>
+        </div>
+        <div id="tab3" class="tab">
+            <p>Groups Tab</p>
+        </div>
+        
+    </div>
+    
 </body>
 
 </html>
