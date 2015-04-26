@@ -20,7 +20,7 @@ $(function() {
         '<li id="' + currentTab.id + '">' +
           '<img width="25" height="25" src="' + currentTab.favIconUrl + '">' +
           '<a>' + ellipsize(currentTab.title) + '</a>' +
-		  '<span class="expand">^</span>' +
+		 // '<span class="expand">^</span>' +
           '<span class="close">x</span>' +
         '</li>');
     }
@@ -86,19 +86,23 @@ jQuery(document).ready(function () {
                 condensedList = [];
             }
 
+			var entry = {title: "", url: ""};
             for (var i = 0; i < tab.length; i++) {
                 var currentTab = tab[i];
-
-                var entry = { title: currentTab.title, url: currentTab.url };
-
-                tabsToRemove.push(currentTab.id);
-                condensedList.push(entry);
+				
+                entry = { title: currentTab.title, url: currentTab.url };
 
                 $('#condenselist').append(
                 '<li title="' + currentTab.title + '">' +
                     '<a>' + ellipsize(currentTab.title) + '</a>' +
                     '<span class="delete">x</span>' +
                 '</li>');
+				
+				tabsToRemove.push(currentTab.id);
+				//condesedList.push(entry) is where the error in the program is happening.
+				condensedList.push(entry);
+				
+
             }
 
             localStorage.setItem("condensedList", condensedList);
@@ -111,7 +115,7 @@ jQuery(document).ready(function () {
         var parent = $(this).parent();
 
         condensedList = localStorage.getItem("condensedList");
-
+		//Error here condensed list null
         for (var i = 0; i < condensedList.length; i++) {
             if (condensedList[i].title === parent.attr('title')) {
                 condensedList.splice(i, 1);
