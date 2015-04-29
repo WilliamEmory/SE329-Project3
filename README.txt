@@ -9,14 +9,13 @@ Installation Instructions:
   6. Click the Load Unpacked Extension button
   7. Go to where the whole unziped file stored and click ok
   8. Once the tab manager has loaded check the enabled box
-
-Usage Instructions:
 -------------------------------------------------
-List:
-  - Displays all open tabs
-  - Search bar allows you to search through open tabs
-  - Click the x button next to any tab name to close that tab
-Condense:
-  - Click the condense tab button to close all tabs and create a group
-Groups:
-
+Usage Instructions:
+  List:
+    - Displays all open tabs
+	- Search bar allows you to search through open tabs
+	- Click the x button next to any tab name to close that tab
+  Condense:
+    - Click the condense tab button to close all tabs and create a group
+  Groups:
+    - 
