@@ -18,7 +18,7 @@ $(function() {
         
       $('#tablist').append(
         '<li id="' + currentTab.id + '">' +
-          '<img width="25" height="25" src="' + currentTab.favIconUrl + '">' +
+          '<img width="25" height="25" src="' + currentTab.favIconUrl + '">'  +
           '<a>' + ellipsize(currentTab.title) + '</a>' +
 		 // '<span class="expand">^</span>' +
           '<span class="close">x</span>' +
@@ -39,7 +39,7 @@ $(function() {
         });
     $('.tab-count').text(tab.length);
   });
-  
+
   function expand() {
 	var tabId = parseInt($(this).attr('id'), 10);
 	chrome.windows.create({ tabId: tabId, focused: true });
@@ -94,7 +94,7 @@ jQuery(document).ready(function () {
 
                 $('#condenselist').append(
                 '<li title="' + currentTab.title + '">' +
-                    '<a>' + ellipsize(currentTab.title) + '</a>' +
+                    '<a href="' + currentTab.url + '">' + ellipsize(currentTab.title) + '</a>' +
                     '<span class="delete">x</span>' +
                 '</li>');
 				
@@ -116,12 +116,14 @@ jQuery(document).ready(function () {
 
         condensedList = localStorage.getItem("condensedList");
 		//Error here condensed list null
-        for (var i = 0; i < condensedList.length; i++) {
-            if (condensedList[i].title === parent.attr('title')) {
-                condensedList.splice(i, 1);
-                break;
-            }
-        }
+		if(condensedList!= null){
+			for (var i = 0; i < condensedList.length; i++) {
+				if (condensedList[i].title === parent.attr('title')) {
+					condensedList.splice(i, 1);
+					break;
+				}
+			}
+		}
 
         localStorage.setItem("condensedList", condensedList);
 
