@@ -76,7 +76,7 @@ jQuery(document).ready(function () {
         e.preventDefault();
     });
 
-    jQuery('button').on('click', function () {
+    jQuery('#condenseButton').on('click', function () {
         chrome.tabs.query({ currentWindow: true, active: false }, function (tab) {
 
             var tabsToRemove = [];
@@ -110,6 +110,22 @@ jQuery(document).ready(function () {
             chrome.tabs.remove(tabsToRemove);
         });
     });
+	
+	jQuery('#sendGroupButton').on('click', function () {
+		console.log("Hello World!")
+	});
+	
+	jQuery('#createGroupButton').on('click', function () {
+		$('#tab3').append(
+          '<form>' + 
+		  '<br>Group Name:<br><input type="text" name="groupname" id=groupname>' +
+		  '</form>' +
+		  '<button id="submitGroupButton">Submit</button>');
+		$('#submitGroupButton').on('click', function () {
+			value = $('#groupname').val(); 
+			console.log(value);
+		});
+	});
 
     $('body').on('click', '.delete', function () {
         var parent = $(this).parent();
