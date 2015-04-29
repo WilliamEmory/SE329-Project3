@@ -118,19 +118,10 @@ jQuery(document).ready(function () {
 		console.log("Hello World!")
 	});
 	
-	jQuery('#createGroupButton').on('click', function () {
-		$('.ui.bottom.attached.tab.blue.segment').append(
-          '<form>' +
-		  '<div class="ui bottom input">' +
-		  '<input type="text" placeholder="Group Name" name="groupname" id="groupname">' +
-		  '</div>' +
-		  '<div class="ui bottom blue button" id="submitGroupButton">Submit</div>' +
-    	  '</form>');
-		$('#submitGroupButton').on('click', function () {
-			value = $('#groupname').val();
-			$('#grouplist').append(value + '<br>');
-			console.log(value);
-		});
+	jQuery('#submitGroupButton').on('click', function () {
+		value = $('#groupname').val();
+		$('#grouplist').append(value + '<br>');
+	      	console.log(value);
 	});
 
     $('body').on('click', '.delete', function () {

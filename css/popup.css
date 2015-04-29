@@ -5,7 +5,11 @@ html {
 }
 
 .ui.segment:first-child {
-    margin-top: 1rem;
+    margin-top: 2rem;
+}
+
+.ui.segment.attached + .ui.segment.attached:not(.top) {
+  border-top: yes;
 }
 
 body {

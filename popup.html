@@ -73,8 +73,11 @@
     
     <!-----THIRD TAB ---->
     <div class="ui bottom attached tab blue segment" data-tab="third">
-        <div class="ui blue button" id="createGroupButton">Create Group</div>
-
+        <div class="ui bottom input">
+	    <input type="text" placeholder="Group Name" name="groupname" id="groupname">
+	</div>
+	<div class="ui bottom blue button" id="submitGroupButton">Submit</div>
+                  
             <div class="ui bottom segment">
              <ul class="grouplist" style="list-style: none;" id="grouplist"></ul>
             </div>

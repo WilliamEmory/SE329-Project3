@@ -12325,7 +12325,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.segment.attached + .ui.segment.attached:not(.top) {
-  border-top: none;
+  //border-top: none;
 }
 
 /* Top */
