@@ -21,7 +21,7 @@ $(function() {
           '<img width="25" height="25" src="' + currentTab.favIconUrl + '">'  +
           '<a>' + ellipsize(currentTab.title) + '</a>' +
 		 // '<span class="expand">^</span>' +
-          '<span class="close">x</span>' +
+          '<span class="close"><i class="remove circle icon"></span>' +
         '</li>');
     }
       $('#search').keyup(function(){
@@ -44,6 +44,9 @@ $(function() {
 	var tabId = parseInt($(this).attr('id'), 10);
 	chrome.windows.create({ tabId: tabId, focused: true });
   }
+  
+   $('.test.menu .item').tab({history:false});
+
   
   $('body').on('dblclick', '#tablist li', expand);
   
@@ -95,7 +98,7 @@ jQuery(document).ready(function () {
                 $('#condenselist').append(
                 '<li title="' + currentTab.title + '">' +
                     '<a href="' + currentTab.url + '">' + ellipsize(currentTab.title) + '</a>' +
-                    '<span class="delete">x</span>' +
+                    '<span class="delete"><i class="remove circle outline icon"></span>' +
                 '</li>');
 				
 				tabsToRemove.push(currentTab.id);
@@ -116,13 +119,16 @@ jQuery(document).ready(function () {
 	});
 	
 	jQuery('#createGroupButton').on('click', function () {
-		$('#tab3').append(
-          '<form>' + 
-		  '<br>Group Name:<br><input type="text" name="groupname" id=groupname>' +
-		  '</form>' +
-		  '<button id="submitGroupButton">Submit</button>');
+		$('.ui.bottom.attached.tab.blue.segment').append(
+          '<form>' +
+		  '<div class="ui input">' +
+		  '<input type="text" placeholder="Group Name" name="groupname" id="groupname">' +
+		  '</div>' +
+    	  '</form>' +
+		  '<div class="ui blue button" id="submitGroupButton">Submit</div>');
 		$('#submitGroupButton').on('click', function () {
-			value = $('#groupname').val(); 
+			value = $('#groupname').val();
+			$('#grouplist').append(value + '<br>');
 			console.log(value);
 		});
 	});
