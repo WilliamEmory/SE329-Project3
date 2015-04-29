@@ -12,11 +12,12 @@ Installation Instructions:
 
 -------------------------------------------------
 Usage Instructions:
-  List:
-    - Displays all open tabs
-	- Search bar allows you to search through open tabs
-	- Click the x button next to any tab name to close that tab
-  Condense:
-    - Click the condense tab button to close all tabs and create a group
-  Groups:
-    - 
+-------------------------------------------------
+List:
+  - Displays all open tabs
+  - Search bar allows you to search through open tabs
+  - Click the x button next to any tab name to close that tab
+Condense:
+  - Click the condense tab button to close all tabs and create a group
+Groups:
+    	- 
