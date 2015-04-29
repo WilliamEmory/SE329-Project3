@@ -9,6 +9,7 @@ Installation Instructions:
   6. Click the Load Unpacked Extension button
   7. Go to where the whole unziped file stored and click ok
   8. Once the tab manager has loaded check the enabled box
+
 -------------------------------------------------
 Usage Instructions:
   List:
