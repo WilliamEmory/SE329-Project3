@@ -73,8 +73,8 @@ function loadSavedGroups(){
 		var tabs = getGroup(groups[i]);
 		var listid = "#" + name + "list";
 		for(var j = 0; j<tabs.length; j++){
-			$(listid).append('<a href="' + tabs[j].Url + 
-							'"<li>' + tabs[j].Title + '</li>' + '</a>');
+			$(listid).append('<br><a href="' + tabs[j].Url + 
+							'"<li>' + tabs[j].Title + '</li>' + '</a><br>');
 		}
 	}	
 }
@@ -328,9 +328,9 @@ jQuery(document).ready(function () {
                 $('#condenselist').append(
                 '<li title="' + currentTab.title + '">' +
                     '<a href="' + currentTab.url + '">' + ellipsize(currentTab.title) + '</a>' +
-                    '<span class="delete"><i class="remove circle outline icon"></span>' +
+                    '<span class="delete">X</span>' +
                 '</li>');
-				setTab("Group1",currentTab.title,currentTab.url);
+				//setTab("Group1",currentTab.title,currentTab.url);
 				tabsToRemove.push(currentTab.id); 
 				//condensedList.push(entry) is where the error in the program is happening.
 				//condensedList.push(entry);
@@ -367,10 +367,10 @@ jQuery(document).ready(function () {
 			var name = $('#addgroupname').val();
 			createGroup(name);
 			$('#grouplist').append(
-				'<div id="' + name + "div" + '">' +
+				'<br><div id="' + name + "div" + '">' +
 					'<h3>' + name + '</h3>' +
 					'<ul id=' + name + '">' + '</ul>' +
-				'</div>'
+				'</div><br>'
 			);
 			$('#groupform').remove();
 			$('addgroupname').val('Add Group Name!');
