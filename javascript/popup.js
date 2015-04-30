@@ -86,6 +86,7 @@ $(function() {
         
       $('#tablist').append(
         '<li id="' + currentTab.id + '">' +
+	'<div class="ui divider"></div>' +
           '<img width="25" height="25" src="' + currentTab.favIconUrl + '">'  +
           '<a>' + ellipsize(currentTab.title) + '</a>' +
 		 // '<span class="expand">^</span>' +
@@ -181,6 +182,7 @@ function refresh(){
         
       $('#tablist').append(
         '<li id="' + currentTab.id + '">' +
+	'<div class="ui divider"></div>' +
           '<img width="25" height="25" src="' + currentTab.favIconUrl + '">'  +
           '<a>' + ellipsize(currentTab.title) + '</a>' +
 		 // '<span class="expand">^</span>' +
